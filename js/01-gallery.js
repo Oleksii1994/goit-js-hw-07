@@ -5,7 +5,6 @@ const galleryEl = document.querySelector(".gallery");
 const imageMarkup = createGalleryItemsMarkup(galleryItems);
 
 galleryEl.insertAdjacentHTML("beforeend", imageMarkup);
-
 galleryEl.addEventListener("click", onGalleryItemClick);
 
 function createGalleryItemsMarkup(gallery) {
@@ -29,9 +28,15 @@ function onGalleryItemClick(event) {
 
   basicLightbox
     .create(
-      `
-  	<img width="1400" height="900" src="${event.target.dataset.source}">
-  `
+      `<img width="1400" height="900" src="${event.target.dataset.source}">`
     )
     .show();
+
+  window.addEventListener("keydown", onEscKeyDown);
+}
+
+function onEscKeyDown(event) {
+  const modalEl = document.querySelector(".basicLightbox");
+  window.removeEventListener("keydown", onEscKeyDown);
+  modalEl.classList.remove("basicLightbox");
 }
