@@ -28,7 +28,6 @@ function onGalleryItemClick(event) {
   }
 
   const imageEl = event.target;
-  // imageEl.addEventListener("click");
 
   imageEl.onclick = () => {
     basicLightbox
