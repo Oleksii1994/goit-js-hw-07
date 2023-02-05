@@ -27,25 +27,11 @@ function onGalleryItemClick(event) {
     return;
   }
 
-  const imageEl = event.target;
-
-  imageEl.onclick = () => {
-    basicLightbox
-      .create(
-        `
+  basicLightbox
+    .create(
+      `
   	<img width="1400" height="900" src="${event.target.dataset.source}">
   `
-      )
-      .show();
-  };
+    )
+    .show();
 }
-
-// document.querySelector(".gallery__image").onclick = () => {
-//   basicLightbox
-//     .create(
-//       `
-// 		<img width="1400" height="900" src="https://placehold.it/1400x900">
-// 	`
-//     )
-//     .show();
-// };
