@@ -35,7 +35,7 @@ function onGalleryItemClick(event) {
   window.addEventListener("keydown", onEscKeyDown);
 }
 
-function onEscKeyDown(event) {
+function onEscKeyDown() {
   const modalEl = document.querySelector(".basicLightbox");
   window.removeEventListener("keydown", onEscKeyDown);
   modalEl.classList.remove("basicLightbox");
