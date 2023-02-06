@@ -38,6 +38,7 @@ function onGalleryItemClick(event) {
     }
   );
   instance.show();
+
   function closeModal(event) {
     if (event.code === "Escape") {
       instance.close();
