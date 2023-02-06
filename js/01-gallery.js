@@ -36,5 +36,8 @@ function onGalleryItemClick(event) {
 }
 
 function onEscKeyDown() {
-  instance.close();
+  const modalEl = document.querySelector(".basicLightbox");
+  window.removeEventListener("keydown", onEscKeyDown);
+  modalEl.classList.remove("basicLightbox");
+  modalEl.innerHTML = "";
 }
