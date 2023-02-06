@@ -26,15 +26,28 @@ function onGalleryItemClick(event) {
     return;
   }
 
-  basicLightbox
-    .create(
-      `<img width="1400" height="900" src="${event.target.dataset.source}">`
-    )
-    .show();
-
-  window.addEventListener("keydown", onEscKeyDown);
+  const instance = basicLightbox.create(
+    `<img width="1400" height="900" src="${event.target.dataset.source}">`,
+    {
+      onShow: (instance) => {
+        window.addEventListener("keydown", closeModal);
+      },
+      onClose: (instance) => {
+        window.removeEventListener("keydown", closeModal);
+      },
+    }
+  );
+  instance.show();
+  function closeModal(event) {
+    if (event.code === "Escape") {
+      instance.close();
+    }
+  }
 }
 
-function onEscKeyDown() {
-  basicLightbox.close();
-}
+// function onEscKeyDown() {
+//   const modalEl = document.querySelector(".basicLightbox");
+//   window.removeEventListener("keydown", onEscKeyDown);
+//   modalEl.classList.remove("basicLightbox");
+//   modalEl.innerHTML = "";
+// }
