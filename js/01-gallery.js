@@ -44,10 +44,3 @@ function onGalleryItemClick(event) {
     }
   }
 }
-
-// function onEscKeyDown() {
-//   const modalEl = document.querySelector(".basicLightbox");
-//   window.removeEventListener("keydown", onEscKeyDown);
-//   modalEl.classList.remove("basicLightbox");
-//   modalEl.innerHTML = "";
-// }
